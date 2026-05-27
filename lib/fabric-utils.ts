@@ -167,7 +167,7 @@ export function saveDesign(canvas: FabricCanvas, name: string) {
     savedAt: new Date().toISOString(),
   };
   // Replace if same name exists
-  const idx = saves.findIndex(s => s.name === name);
+  const idx = saves.findIndex((s: { name: string }) => s.name === name);
   if (idx >= 0) saves[idx] = design;
   else saves.unshift(design);
   localStorage.setItem('onimix_designs', JSON.stringify(saves.slice(0, 20)));
